@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang='ru'>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-witdth, initial-scale=1.0">
+	<link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}">
+	<title>forum</title>
+</head>
+<body>
+	<h1>dobro poxhalovat na forum!</h1>
+	<form action="/post" method="POST">
+		<textarea name="message" placeholder="Vashe soobshenie..." required></textarea>
+		<button type="submit">Otpravit</button>
+	</form>
+	<div id "posts">
+		{%for post in posts%}
+		<div class="post"></div>
+		{%endfor%}
+	</div>
+</body>
+</html>
