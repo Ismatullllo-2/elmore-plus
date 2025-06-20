@@ -1,1 +1,27 @@
 
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Profil' {{ user.username }}</title>
+</head>
+<body>
+    <h1>Profil' {{ user.username }}</h1>
+    
+    <h2>Publikatsii:</h2>
+    <form method="POST" action="/create_post">
+        <textarea name="content" placeholder="Chto novogo?" required></textarea>
+        <button type="submit">Opublikovat'</button>
+    </form>
+    
+    <ul>
+        {% for post in posts %}
+            <li>{{ post.content }}</li>
+        {% endfor %}
+    </ul>
+    
+    <a href="/">Na glavnuyu</a>
+</body>
+</html>
